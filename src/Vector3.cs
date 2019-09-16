@@ -24,6 +24,17 @@ namespace VectorMath
         public double Z;
 
         /// <summary>
+        /// gets the maginitiude of the vector
+        /// </summary>
+        public double Magnitude
+        {
+            get
+            {
+                return Math.Sqrt(this.X * this.X + this.Y * this.Y + this.Z * this.Z);
+            }
+        }
+
+        /// <summary>
         /// Constructs a new instance of Vector3 with
         /// X, Y, and Z properties set to 0.
         /// </summary>
@@ -46,6 +57,20 @@ namespace VectorMath
             this.X = x;
             this.Y = y;
             this.Z = z;
+        }
+
+        /// <summary>
+        /// gets a vector perpandicular to this vector and another one
+        /// </summary>
+        /// <param name="other">another vector</param>
+        /// <returns>a new vector perpandicular to both vectors</returns>
+        public Vector3 CrossProduct(Vector3 other)
+        {
+            return new Vector3(
+                this.Y * other.Z - this.Z * other.Y,
+                this.Z * other.X - this.X * other.Z,
+                this.X * other.Y - this.Y * other.X
+                );
         }
     }
 }
